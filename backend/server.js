@@ -4,6 +4,9 @@ const userRoutes=require("./Routes/userRoutes")
 const app=express();
 app.use(express.json());
 
+const cors=require("cors");
+app.use(cors());
+
 
 
 connectToDB();
