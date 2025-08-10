@@ -2,11 +2,6 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const generateToken = require("../config/generateToken");
 
-/**
- * @desc    Register a new user
- * @route   POST /api/users
- * @access  Public
- */
 const registerUser = asyncHandler(async (req, res) => {
     // Destructure all relevant fields from the request body
     const { name, email, password, pic, role, bio, expertise, socialLinks } = req.body;
@@ -58,11 +53,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 });
 
-/**
- * @desc    Auth user & get token
- * @route   POST /api/users/login
- * @access  Public
- */
+
 const authUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 

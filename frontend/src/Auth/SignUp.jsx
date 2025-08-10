@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { data, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 const Signup = () => {
   // Basic info
   const [name, setName] = useState("");
@@ -74,6 +74,9 @@ const Signup = () => {
 
       // Redirect or toast
     } catch (err) {
+        console.log("Full error:", err);
+  console.log("Error response:", err.response);
+      toast.error(err.response?.data?.message||"Signup Failed!!!");
       console.error("Signup error:",  err.message);
     }
   };

@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
-const protect = asyncHandler(async (req, res, next) => {
+const verifyToken = asyncHandler(async (req, res, next) => {
   let token;
   
   if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
@@ -49,4 +49,4 @@ const isSeeker=(req,res,next)=>{
 }
 
 
-module.exports = { protect ,isExpert,isSeeker};
+module.exports = { verifyToken ,isExpert,isSeeker};
